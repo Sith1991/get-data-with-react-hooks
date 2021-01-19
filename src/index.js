@@ -1,29 +1,21 @@
-import React, {useState}  from 'react';
+import React, {useContext} from 'react';
 import ReactDOM from 'react-dom';
 
+const MyContext = React.createContext();
+
 const App = () => {
-
-    const [color, setColor] = useState('gray');
-    const [fntSize, setFontSize] = useState(14)
-
     return (
-        <div style={{
-            padding: '10px',
-            background: color,
-            fontSize: `${fntSize}px`
-        }}>
-            <h1>Hello World</h1>
-            <button onClick={() => setColor('white')}>
-                Light
-            </button>
-            <button onClick={() => setColor('gray')}>
-                Dark
-            </button>
-            <button onClick={() => setFontSize((s) => s+2)} >
-                +
-            </button>
-        </div>
+    <MyContext.Provider value = 'Hello World 123'>
+        <Child />
+    </MyContext.Provider>
     )
+}
+
+const Child =() => {
+    const val = useContext(MyContext);
+    return (
+        <p>{val}</p>
+    );
 }
 
 ReactDOM.render(<App />, document.getElementById('root')
