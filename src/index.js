@@ -12,6 +12,7 @@ const App = () => {
             background: color,
             fontSize: `${fntSize}px`
         }}>
+            {/*// HI HI HI HI HI*/}
             <h1>Hello World</h1>
             <button onClick={() => setColor('white')}>
                 Light
